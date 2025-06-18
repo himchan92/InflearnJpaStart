@@ -17,7 +17,7 @@ public class Order {
     private Long memberId;
 
     //Member 테이블 연관관계 매핑위한 선언 ~
-    private Member member;
+    //private Member member;
 
     private LocalDateTime orderDate;
 
