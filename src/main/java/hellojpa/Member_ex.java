@@ -4,10 +4,9 @@ import jakarta.persistence.*;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.util.Date;
 
 @Entity
-public class Member {
+public class Member_ex {
 
     @Id //PK 설정
     //@GeneratedValue(strategy = GenerationType.IDENTITY) //MySQL 타입 auto increment 지원
@@ -32,9 +31,9 @@ public class Member {
     @Transient
     private int temp;
 
-    public Member() {}
+    public Member_ex() {}
 
-    public Member(Long id, String name) {
+    public Member_ex(Long id, String name) {
         this.id = id;
         this.name = name;
     }
