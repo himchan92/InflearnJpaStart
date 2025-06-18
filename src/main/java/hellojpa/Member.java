@@ -10,6 +10,7 @@ import java.util.Date;
 public class Member {
 
     @Id //PK 설정
+    //@GeneratedValue(strategy = GenerationType.IDENTITY) //MySQL 타입 auto increment 지원
     private Long id;
 
     @Column(name = "name", nullable = false)
