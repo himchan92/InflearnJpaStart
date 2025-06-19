@@ -19,7 +19,7 @@ public class Member_ex {
 //    @Column(name = "TEAM_ID")
 //    private Long teamId;
 
-    @ManyToOne //다대1 <->1대다
+    @ManyToOne //다대1 <-> 1대다
     @JoinColumn(name = "TEAM_ID") //Team > team_id 조인
     private Team team;
 
