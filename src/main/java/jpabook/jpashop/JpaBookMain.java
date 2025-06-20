@@ -1,13 +1,9 @@
 package jpabook.jpashop;
 
-import hellojpa.Member_ex;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.EntityTransaction;
 import jakarta.persistence.Persistence;
-import jpabook.jpashop.domain.Member;
-import jpabook.jpashop.domain.Order;
-import jpabook.jpashop.domain.OrderItem;
 
 public class JpaBookMain {
     public static void main(String[] args) {
@@ -18,16 +14,6 @@ public class JpaBookMain {
         tx.begin(); //변경작업시 반드시 필요
 
         try {
-
-            Order order = new Order();
-            em.persist(order);
-
-            OrderItem orderItem = new OrderItem();
-            orderItem.setOrder(order);
-            em.persist(orderItem);
-
-            //order.addOrderItem(new OrderItem());
-
             tx.commit();
         } catch (Exception e) {
             tx.rollback();
