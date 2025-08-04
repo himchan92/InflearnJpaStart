@@ -5,8 +5,7 @@ import jakarta.persistence.Id;
 
 @Entity
 public class Member {
-
-    @Id //JPA 에게 PK 통보
+    @Id
     private Long id;
 
     private String name;
