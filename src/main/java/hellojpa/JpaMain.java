@@ -19,6 +19,7 @@ public class JpaMain {
             Member member = new Member();
             member.setId(100L);
             member.setName("HelloJPA");
+            member.setRoleType(RoleType.USER); //enum 타입 STRING 이어야 순번 안바뀌고 보장되어 권장
 
             //영속
             em.persist(member);
