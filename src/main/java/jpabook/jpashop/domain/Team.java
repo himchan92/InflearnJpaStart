@@ -14,6 +14,7 @@ public class Team {
     private Long id;
     private String name;
 
+    //일대다관계 : 일쪽이 관계주인, 다쪽에 FK 존재
     @OneToMany(mappedBy = "team")
     private List<Member> members = new ArrayList<>();
 
