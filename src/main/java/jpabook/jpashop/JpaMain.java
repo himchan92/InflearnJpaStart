@@ -16,15 +16,18 @@ public class JpaMain {
         tx.begin(); //트랜젝션 시작
 
         try {
-
             Team team = new Team();
             team.setName("TeamA");
             em.persist(team);
 
             Member member = new Member();
             member.setUsername("member1");
-            member.setTeam(team);
+            member.changeTeam(team);
+            //역방향(주인아닌쪽)만 연관관계 설정해라
+            //team.getMembers().add(member);
             em.persist(member);
+
+            team.addMember(member);
 
             em.flush();
             em.clear();
@@ -35,7 +38,7 @@ public class JpaMain {
             System.out.println("findTeam = " + findTeam.getName());
 
             Team newTeam = em.find(Team.class, 100L);
-            findMember.setTeam(newTeam); //FK 값 업데이트 변경감지 수행
+            findMember.changeTeam(newTeam); //FK 값 업데이트 변경감지 수행
 
             tx.commit(); //DB 실제 반영
         } catch (Exception e) {
