@@ -16,7 +16,7 @@ public class Member {
 //    private Long teamId;
 
     @ManyToOne(fetch = FetchType.LAZY) //지연로딩 필수
-    @JoinColumn(name = "TEAM_ID")
+    @JoinColumn(name = "TEAM_ID") //Member에 team 왜래키가 있으니 왜래키있는곳을 주인으로하라
     private Team team;
 
     public Long getId() {
