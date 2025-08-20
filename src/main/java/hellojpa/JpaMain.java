@@ -18,12 +18,15 @@ public class JpaMain {
       tx.begin();
 
       try {
+        //비영속상태
         Member member = new Member();
         member.setId(1L);
         member.setName("HelloA");
+
+        //영속상태
         em.persist(member);
 
-        //1차캐시조회
+        //1차캐시조회 후 없으면 DB조회로 성능개선
         Member findMember = em.find(Member.class, 1L);
         System.out.println("findMember = " + findMember.getId());
         System.out.println("findMember = " + findMember.getName());
@@ -38,7 +41,7 @@ public class JpaMain {
           System.out.println("member.name " + item.getName());
         }
 
-        tx.commit(); //실제 DB반영, SETTER 있으면 변경체크를 COMMIT 시점에하는데 감지를 해서 update 수행
+        tx.commit(); //실제 영속상태들을 모두 DB반영
       } catch (Exception e) {
         tx.rollback();
       } finally {
