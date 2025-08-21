@@ -22,6 +22,7 @@ public class JpaMain {
         Member member = new Member();
         member.setId(1L);
         member.setName("HelloA");
+        member.setRoleType(RoleType.ADMIN);
 
         //영속상태
         em.persist(member);
