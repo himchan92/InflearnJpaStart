@@ -1,8 +1,8 @@
-package hellojpa;
+package hellojpa.entity;
 
+import hellojpa.enums.RoleType;
 import jakarta.persistence.*;
 
-import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
 @Entity //JPA 인식
