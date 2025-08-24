@@ -1,5 +1,6 @@
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
+import jakarta.persistence.EntityTransaction;
 import jakarta.persistence.Persistence;
 
 public class JpaMain {
@@ -8,7 +9,16 @@ public class JpaMain {
       EntityManagerFactory emf = Persistence.createEntityManagerFactory("hello");
       EntityManager em = emf.createEntityManager();
 
-      em.close();
+      EntityTransaction tx = em.getTransaction();
+      tx.begin();
+
+      try {
+        tx.commit();
+      } catch (Exception e) {
+        tx.rollback();
+      } finally {
+        em.close();
+      }
       emf.close();
     }
 }
