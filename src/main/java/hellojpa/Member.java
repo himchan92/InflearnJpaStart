@@ -7,6 +7,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToOne;
 
 @Entity
 public class Member {
@@ -21,6 +22,10 @@ public class Member {
   @ManyToOne(fetch = FetchType.LAZY)
   @JoinColumn(name = "TEAM_ID") //상대 TEAM_ID FK키 조인
   private Team team;
+
+  @OneToOne
+  @JoinColumn(name = "LOCKER_ID")
+  private Locker locker;
 
 //  @Column(name = "TEAM_ID")
 //  private Long teamId;
