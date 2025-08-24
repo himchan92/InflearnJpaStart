@@ -45,7 +45,9 @@ public class Member {
     return team;
   }
 
+  //연관관계 편의메소드 별도 생성 권장
   public void setTeam(Team team) {
     this.team = team;
+    team.getMembers().add(this);
   }
 }
