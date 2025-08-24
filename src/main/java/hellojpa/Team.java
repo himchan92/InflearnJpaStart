@@ -1,20 +1,25 @@
-package jpabook.jpashop.domain;
+package hellojpa;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
-public class Item {
+public class Team {
 
   @Id @GeneratedValue
-  @Column(name = "ITEM_ID")
+  @Column(name = "TEAM_ID")
   private Long id;
 
   private String name;
-  private int price;
-  private int stockQuantity;
+
+  @OneToMany(fetch = FetchType.LAZY, mappedBy = "team")
+  private List<Member> members = new ArrayList<>();
 
   public Long getId() {
     return id;
@@ -32,19 +37,11 @@ public class Item {
     this.name = name;
   }
 
-  public int getPrice() {
-    return price;
+  public List<Member> getMembers() {
+    return members;
   }
 
-  public void setPrice(int price) {
-    this.price = price;
-  }
-
-  public int getStockQuantity() {
-    return stockQuantity;
-  }
-
-  public void setStockQuantity(int stockQuantity) {
-    this.stockQuantity = stockQuantity;
+  public void setMembers(List<Member> members) {
+    this.members = members;
   }
 }
