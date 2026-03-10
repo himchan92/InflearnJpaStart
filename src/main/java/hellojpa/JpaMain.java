@@ -31,7 +31,7 @@ public class JpaMain {
                     .getResultList();
 
             for(Member member : result){
-                System.out.println("member.name = " + member.getName());
+                System.out.println("member.name = " + member.getUsername());
             }
 
             tx.commit();
