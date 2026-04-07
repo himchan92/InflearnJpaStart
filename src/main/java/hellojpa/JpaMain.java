@@ -10,18 +10,18 @@ public class JpaMain {
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("hello");
         EntityManager em = emf.createEntityManager();
 
-        EntityTransaction tx = em.getTransaction(); //JPA 모든변경은 트랜젝션내에서 이뤄지니 설정필수
+        // jpa 모든작업은 트랜젝션내에서 해야함
+        EntityTransaction tx = em.getTransaction();
         tx.begin();
 
-        try {
-            tx.commit();
-        } catch (Exception e) {
-            tx.rollback();
-        }
-        finally {
-            em.close();
-        }
+        Member member = new Member();
+        member.setId(1L);
+        member.setName("HelloA");
+        em.persist(member);
 
+        tx.commit();
+
+        em.close();
         emf.close();
     }
 }
