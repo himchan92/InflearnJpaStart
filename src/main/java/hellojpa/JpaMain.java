@@ -1,4 +1,4 @@
-package jpabook.jpashop;
+package hellojpa;
 
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
